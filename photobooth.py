@@ -27,7 +27,8 @@ from uuid import uuid4
 from os.path import join, basename, expanduser
 
 # Where to spit out our qrcode, watermarked image, and local html
-out = expanduser('~/Desktop/sxsw')
+out = expanduser('/tmp/gav')
+#out = expanduser('~/Desktop/sxsw')
 
 # The watermark to apply to all images
 watermark_img = expanduser('~/Desktop/fedora.png')
