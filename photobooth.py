@@ -19,7 +19,7 @@
 # Requires: python-imaging, qrencode, gphoto2, surl
 
 import os
-import surl
+#import surl
 import Image
 import subprocess
 
@@ -47,9 +47,9 @@ delete_after_upload = True
 # The camera configuration
 # Use gphoto2 --list-config and --get-config for more information
 gphoto_config = {
-    '/main/imgsettings/imagesize': 3, # small
+#    '/main/imgsettings/imagesize': 3, # small
     '/main/imgsettings/imagequality': 0, # normal
-    '/main/capturesettings/zoom': 70, # zoom factor
+#    '/main/capturesettings/zoom': 70, # zoom factor
 }
 
 # The URL shortener to use
@@ -75,17 +75,17 @@ class PhotoBooth(object):
 
     def process_image(self, filename):
         print "Processing %s..." % filename
-        print "Applying watermark..."
-        image = self.watermark(filename)
-        print "Uploading to remote server..."
-        url = self.upload(image)
-        print "Generating QRCode..."
-        qrcode = self.qrencode(url)
-        print "Shortening URL..."
-        tiny = self.shorten(url)
-        print "Generating HTML..."
-        html = self.html_output(url, qrcode, tiny)
-        subprocess.call('xdg-open "%s"' % html, shell=True)
+        #print "Applying watermark..."
+        #image = self.watermark(filename)
+        #print "Uploading to remote server..."
+        #url = self.upload(image)
+        #print "Generating QRCode..."
+        #qrcode = self.qrencode(url)
+        #print "Shortening URL..."
+        #tiny = self.shorten(url)
+        #print "Generating HTML..."
+        #html = self.html_output(url, qrcode, tiny)
+        #subprocess.call('xdg-open "%s"' % html, shell=True)
         print "Done!"
 
     def watermark(self, image):
@@ -151,6 +151,6 @@ if __name__ == "__main__":
         while True:
             raw_input("Press enter to capture photo.")
             filename = photobooth.capture_photo()
-            photobooth.process_image(filename)
+            #photobooth.process_image(filename)
     except KeyboardInterrupt:
         print "\nExiting..."
